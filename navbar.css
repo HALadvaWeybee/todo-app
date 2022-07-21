@@ -75,13 +75,8 @@ nav a {
 	background-color: #000000; 
 } */
 nav ul ul {
-  display: none;
   position: absolute;
   top: 60px;
-}
-
-nav ul li:hover > ul {
-  display: inherit;
 }
 
 nav ul ul li {

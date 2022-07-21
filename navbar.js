@@ -2,7 +2,6 @@ const dlt1 = document.getElementById("dlt1");
 const dlt2 = document.getElementById("dlt");
 const action1  = document.getElementById("action1");
 const action2  = document.getElementById("action");
-const sortUl = document.getElementById("sortUl");
 
 window.addEventListener("resize", function(e) {
     e.preventDefault();
@@ -30,5 +29,6 @@ function changeInClass() {
 }
 changeInClass();
 
-
-
+function myClose(data) {
+    data.classList.add("hidden1");
+}

@@ -111,6 +111,9 @@ body {
   visibility: hidden;
 }
 
+.hidden1 {
+  display:none;
+}
 .show {
   display: block;
 }/*# sourceMappingURL=main.css.map */

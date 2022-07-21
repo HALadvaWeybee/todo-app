@@ -83,14 +83,14 @@ nav a {
 } */
 
 nav ul ul {
-  display: none;
+  // display: none;
   position: absolute;
   top: 60px;
 }
 
-nav ul li:hover > ul {
-  display: inherit;
-}
+// nav ul li:hover > ul {
+//   display: block;
+// }
 
 nav ul ul li {
   width: 170px;

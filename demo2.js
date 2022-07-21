@@ -17,23 +17,29 @@ const message = document.querySelector(".alert_msg");
 const drop1 = document.querySelector("#drop-1");
 const drop2 = document.querySelector("#drop-2");
 const dlt = document.getElementById("dlt");
+const sortUl = document.getElementById("sortUl");
+const actionUl = document.getElementById("actionUl");
 
 function myAddArrow1() {
   dlt.classList.add("arrow");
   dlt.classList.remove("arrHover");
+  actionUl.classList.remove("hidden1");
 }
 function myRevArrow1() {
   dlt.classList.remove("arrow");
   dlt.classList.add("arrHover");
+  actionUl.classList.add("hidden1");
 }
 
 function myAddArrow() {
   action.classList.add("arrow");
   action.classList.remove("arrHover");
+  sortUl.classList.remove("hidden1");
 }
 function myRevArrow() {
   action.classList.remove("arrow");
   action.classList.add("arrHover");
+  sortUl.classList.add("hidden1");
 }
 
 let listArr = [];
@@ -180,11 +186,21 @@ function editTodo(data) {
   data.children[1].setSelectionRange(end, end);
   for (let i = 0; i < li.length; i++) {
     if (li[i].id != data.id) {
+      // console.log("ids",li[i].id);
+      console.log(li[i].id, listArr[i].id);
+      const index = listArr.findIndex((arr) => arr.id == li[i].id);
+      listArr[index].value = li[i].children[1].value;
       li[i].children[2].style.display = "";
       li[i].children[3].style.display = "none";
       li[i].children[1].setAttribute("disabled", "true");
+    }
+    else {
       const index = listArr.findIndex((arr) => arr.id == data.id);
       listArr[index].value = data.children[1].value;
+      // // console.log("idmain",li[i].id);
+      // const index = listArr.findIndex((arr) => arr.id == li[i].id);
+      // // console.log(li[i].children[1].value);
+      // listArr[index].value = li[i].children[1].value;
     }
   }
 
@@ -216,6 +232,7 @@ function deleteTodo(ele) {
     toggleClass();
   }
   displayList(listArr);
+  myAction(action.children[0].innerHTML);
 }
 
 // checkbox checking test
@@ -264,7 +281,6 @@ completeSee.addEventListener("click", function (e) {
       li[i].style.display = "none";
     }
   }
-
   displayList(listArr);
   myAction(drop2.previousElementSibling.children[0].innerHTML);
 });
@@ -277,7 +293,7 @@ activeSee.addEventListener("click", function (e) {
   AllSee.classList.remove("holding");
   const li = todoList.getElementsByTagName("li");
   let check;
-
+ 
   for (let i = 0; i < li.length; i++) {
     check = li[i].getElementsByTagName("input")[0];
     check.setAttribute("onclick", "myDisplay(this)");
@@ -333,6 +349,7 @@ addHold();
 function myAction(data) {
   drop2.previousElementSibling.previousElementSibling.innerHTML = data;
   drop2.previousElementSibling.children[0].innerHTML = data;
+  console.log("lll", data);
   switch (data) {
     case "Sort":
       sortList();
@@ -355,6 +372,7 @@ function myAction(data) {
       displayList(listArr);
       break;
   }
+  // sortUl.style.display = "none";
 }
 
 function selection(select = false) {

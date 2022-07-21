@@ -50,10 +50,10 @@
                     <label for="drop-1" class="toggle" id="dlt1">Action</label>
                     <a href="#" id="dlt" class="arrHover" onmouseenter="myAddArrow1()" onmouseleave="myRevArrow1()"><span>Action</span></a>
                     <input type="checkbox" id="drop-1"/>
-                    <ul onmouseenter="myAddArrow1()" onmouseleave="myRevArrow1()">
-                        <li><a href="#" onclick="mySelection(this.innerHTML)">Delete Selected</a></li>
-                        <li><a href="#" onclick="mySelection(this.innerHTML)">Select All</a></li>
-                        <li><a href="#" onclick="mySelection(this.innerHTML)">Unselect All</a></li>
+                    <ul id="actionUl" class="hidden1" onmouseenter="myAddArrow1()" onmouseleave="myRevArrow1()">
+                        <li><a href="#" onclick="mySelection(this.innerHTML); myClose(this.parentNode.parentNode);">Delete Selected</a></li>
+                        <li><a href="#" onclick="mySelection(this.innerHTML); myClose(this.parentNode.parentNode);">Select All</a></li>
+                        <li><a href="#" onclick="mySelection(this.innerHTML); myClose(this.parentNode.parentNode);">Unselect All</a></li>
                     </ul> 
 
                 </li> 
@@ -61,14 +61,14 @@
                 <li>
                 <!-- First Tier Drop Down -->
                 <label for="drop-2" class="toggle" id="action1">Sort</label>
-                <a href="#" id="action" class="arrHover" onmouseenter="myAddArrow()" onmouseleave="myRevArrow()"><span>Sort</span></a>
+                <a href="#" id="action" class="arrHover" onmouseenter="myAddArrow()" onmouseleave="myRevArrow()"><span>Operation</span></a>
                 <input type="checkbox" id="drop-2"/>
-                <ul id="sortUl" onmouseenter="myAddArrow()" onmouseleave="myRevArrow()">
-                    <li><a href="#" onclick="myAction(this.innerHTML)">Sort</a></li>
-                    <li><a href="#" onclick="myAction(this.innerHTML)">A-Z</a></li>
-                    <li><a href="#" onclick="myAction(this.innerHTML)">Z-A</a></li>
-                    <li><a href="#" onclick="myAction(this.innerHTML)">Newest</a></li>
-                    <li><a href="#" onclick="myAction(this.innerHTML)">Oldest</a></li>
+                <ul id="sortUl" onmouseenter="myAddArrow()" onmouseleave="myRevArrow()" class="hidden1">
+                     <!-- <li><a href="#" onclick="myAction(this.innerHTML)">Sort</a></li> -->
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">A-Z</a></li>
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">Z-A</a></li>
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">Newest</a></li>
+                    <li><a href="#" onclick="myAction(this.innerHTML); myClose(this.parentNode.parentNode);">Oldest</a></li>
                 </ul>
                 
                 </li>
